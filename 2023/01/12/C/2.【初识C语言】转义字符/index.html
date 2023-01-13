@@ -1,0 +1,322 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>C语言转义字符 | Nico's Blog</title><meta name="author" content="NcPhoton"><meta name="copyright" content="NcPhoton"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="💦字符串 字符串是什么   例：”hello world！“   这种被双引号” “引起来的一串字符叫做字符串字面值，简称字符串。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言转义字符">
+<meta property="og:url" content="http://butterfly.xinsong.xyz/2023/01/12/C/2.%E3%80%90%E5%88%9D%E8%AF%86C%E8%AF%AD%E8%A8%80%E3%80%91%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6/index.html">
+<meta property="og:site_name" content="Nico&#39;s Blog">
+<meta property="og:description" content="💦字符串 字符串是什么   例：”hello world！“   这种被双引号” “引起来的一串字符叫做字符串字面值，简称字符串。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-01-12T13:21:07.000Z">
+<meta property="article:modified_time" content="2023-01-13T03:34:48.723Z">
+<meta property="article:author" content="NcPhoton">
+<meta property="article:tag" content="c">
+<meta property="article:tag" content="字符">
+<meta name="twitter:card" content="summary"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://butterfly.xinsong.xyz/2023/01/12/C/2.%E3%80%90%E5%88%9D%E8%AF%86C%E8%AF%AD%E8%A8%80%E3%80%91%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C语言转义字符',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-01-13 11:34:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">73</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">48</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Nico's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C语言转义字符</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-01-12T13:21:07.000Z" title="Created 2023-01-12 21:21:07">2023-01-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-01-13T03:34:48.723Z" title="Updated 2023-01-13 11:34:48">2023-01-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C语言转义字符"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="💦字符串"><a href="#💦字符串" class="headerlink" title="💦字符串"></a>💦字符串</h2><ul>
+<li><strong>字符串是什么</strong></li>
+</ul>
+<blockquote>
+<p>例：”hello world！“</p>
+</blockquote>
+<p> 这种被双引号<font color=red>” “</font>引起来的一串字符叫做字符串字面值，简称字符串。</p>
+<span id="more"></span>
+
+<ul>
+<li><strong>注意</strong>：在我的上一篇文章已经讲过，字符串的结束标志是一个‘\0’的转义字符，在字符串的末尾被省略了。</li>
+<li><strong>字符串的存储方式</strong></li>
+</ul>
+<blockquote>
+<p>我们都知道，一个字符是储存在变量中的。</p>
+<p>那字符串储存在哪里呢？</p>
+<p>接下来介绍一下在C语言中存储字符串的两种方式，上代码：</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> arr1[] = <span class="string">&quot;hehe&quot;</span>;</span><br><span class="line">    <span class="type">char</span> arr2[] = &#123; <span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;e&#x27;</span> &#125;;<span class="comment">//字符挨个连续地储存到数组中</span></span><br><span class="line">    <span class="type">char</span> arr3[] = &#123; <span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;e&#x27;</span> ,<span class="string">&#x27;\0&#x27;</span> &#125;;</span><br><span class="line">    <span class="type">char</span>*arr4   = <span class="string">&quot;hehe&quot;</span>;	<span class="comment">//”hehe“这样的字符串在程序中其实是首字符的地址</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, arr1);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, arr2);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, arr3);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, arr4);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 输出结果如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sxfinn/CDN/img/202212021543172.png" alt="image-20220715082445542"></p>
+<p>可以看到arr1和arr3的输出结果是相同的，但是arr2的结果就让人看不懂了，虽然 &#x3D;&#x3D;”hehe”&#x3D;&#x3D;仍在屏幕上打印出来了，但后面跟了”烫烫烫烫hehe“的乱码。</p>
+<p><strong>思考</strong>：<strong>出现这种情况的原因是什么呢？</strong></p>
+<p>我们来调试一下代码，如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sxfinn/CDN/img/202212021543423.png" alt="image-20220518223534478"></p>
+<p><strong>分析</strong>：似乎他们的不同之处也就只有arr1的末尾比arr2多了一个‘\0’，而我们也联想到了另一个函数那就是strlen函数，在使用strlen函数时也出现了这样一个问题，strlen函数在返回arr2这样的数组的字符串长度时，总是返回的随机值。</p>
+<p>这里就与printf打印字符串的方式有关了，printf在以%s的形式打印arr2时，不断的向后打印每一个字符在标准输出上，直到遇到’\0’才会停止操作。</p>
+<p>这里附上一条详细介绍printf函数的链接。如下：</p>
+<p><a target="_blank" rel="noopener" href="http://cplusplus.com/reference/cstdio/printf/?kw=printf"><strong>printf函数详解</strong></a></p>
+<blockquote>
+<p><strong>牢记:字符串的结束标志是一个’\0’转义字符，一定不能忽略。</strong></p>
+</blockquote>
+<h2 id="💦转义字符"><a href="#💦转义字符" class="headerlink" title="💦转义字符"></a>💦转义字符</h2><ul>
+<li>如果想打印出一个文件的路径，我们该写出什么样的代码？</li>
+</ul>
+<blockquote>
+<p>例：打印出 c:\code-c++\test.cpp</p>
+</blockquote>
+<p>我们来尝试一下我们大概率首先想到的代码。如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, <span class="string">&quot;c:\code - c++\test.cpp&quot;</span>);		</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来看看运行结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sxfinn/CDN/img/202212021544802.png" alt="image-20220518223542045"></p>
+<p>这似乎与我们想要的不太一样，我们来看看少了哪些东西。</p>
+<p><strong>思考</strong>：这里红色框框内就是没有打印出来分别的是<font color=purple>‘\‘和’\t’</font>,这似乎两者都带着一个 &#x3D;&#x3D;’\ ‘&#x3D;&#x3D; 字符，那这究竟是什么呢？</p>
+<p>这就不得不提到转义字符，顾名思义就是转变含义。</p>
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th align="left">释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\?</td>
+<td align="left">在书写连续多个问号时，防止他们被解析成三字母词</td>
+</tr>
+<tr>
+<td>\‘</td>
+<td align="left">用于表示字符常量 ’</td>
+</tr>
+<tr>
+<td>\“</td>
+<td align="left">用于表示一个字符串内部的双引号（将”的含义从双引号的一半”—&gt;单纯的<font color=red> “ </font>符号）</td>
+</tr>
+<tr>
+<td>\\</td>
+<td align="left">用于表示一个反斜杠，防止它被解释为一个转义字符</td>
+</tr>
+<tr>
+<td>\a</td>
+<td align="left">警告字符，蜂鸣</td>
+</tr>
+<tr>
+<td>\b</td>
+<td align="left">退格符</td>
+</tr>
+<tr>
+<td>\f</td>
+<td align="left">进纸符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td align="left">换行</td>
+</tr>
+<tr>
+<td>\r</td>
+<td align="left">回车</td>
+</tr>
+<tr>
+<td>\t</td>
+<td align="left">制表符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td align="left">垂直制表符</td>
+</tr>
+<tr>
+<td>\ddd</td>
+<td align="left">ddd表示3个八进制的数字</td>
+</tr>
+<tr>
+<td>\xdd</td>
+<td align="left">dd表示两个十六进制的数字</td>
+</tr>
+</tbody></table>
+<p>接下来解决两个问题：</p>
+<blockquote>
+<p>问题一：如何在屏幕上打印<font color =purple>一个单引号 ‘</font></p>
+<p>问题二：如何在屏幕上打印一个字符串，字符串内容是<font color =purple>一个双引号 “</font></p>
+</blockquote>
+<p>通常在不了解转义字符的情况下，我们会写出如下代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, <span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">    print(<span class="string">&quot;%c&quot;</span>, <span class="string">&quot;&quot;</span><span class="string">&quot;);</span></span><br><span class="line"><span class="string">    return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看到已经报错了这里已经报错了，错误如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sxfinn/CDN/img/202212021545966.png" alt="image-20220518223742657"></p>
+<p>既然这样不行，我们结合一下上面的转义字符表再来尝试；</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sxfinn/CDN/img/202212021545548.png" alt="image-20220518223749655"></p>
+<p>接着我们修改一下代码，如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sxfinn/CDN/img/202212021545151.png" alt="image-20220518223755531"></p>
+<p>可以看到VS报的错误已经没有了，那我们来试试是否可以编译呢？</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sxfinn/CDN/img/202212021545927.png" alt="image-20220518223801309"></p>
+<p>成功在屏幕上打印出了 &#x3D;&#x3D;&#39;和 &quot;&#x3D;&#x3D;。</p>
+<p>回到刚刚打印路径的问题：</p>
+<blockquote>
+<p><strong>例</strong>：打印出 c:\code-c++\test.cpp</p>
+</blockquote>
+<p><strong>分析</strong>：根据上面的表格</p>
+<p>我们可以看到这里的<font color=purple> ‘\t’ 和 ‘\\‘ </font>都是转义字符’&#39;，因此我们如果想要在屏幕上打印出<font color=purple> ‘\t’ 和 ‘\&#39; </font>就必须防止<font color=purple>‘\’</font>被解释为转义字符前面的那个<font color=red>‘\‘</font>.</p>
+<p>因此，我们利用 ‘\\‘ 这个转义字符的作用，在’\t’和’\‘前再加一个’\‘。<br>如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sxfinn/CDN/img/202212021546179.png" alt="image-20220518223813712"></p>
+<p>显然，我们达成了目的，与我们想要的结果一致。</p>
+<p>为了巩固这一重要却容易被忽视的知识点，我们再来做一个题：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">strlen</span>(<span class="string">&quot;nihao&quot;</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">strlen</span>(<span class="string">&quot;c\768code-c++\test&quot;</span>));	</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>先来回顾strlen的功能：strlen求得的是字符串的字符个数。</p>
+</blockquote>
+<p>答案是多少呢？</p>
+<p>先让我们来分析分析，除了转义字符外，其他字符都是单独存在的。</p>
+<p><font color=blue>“c\768code-c++\test” </font>这个字符串中有两个<font color=purple> ‘\‘ </font>，我们来重点看看这两个地方：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sxfinn/CDN/img/202212021546051.png" alt="image-20220518223826986"></p>
+<blockquote>
+<p>结合转义字符表：</p>
+<p>这样一对比是不是觉得很清晰了呢？</p>
+<p>显然，我们可以看到 &#x3D;&#x3D;’\t’ 和’\76’&#x3D;&#x3D; 是两个转义字符。</p>
+<p>到了这里又有一个新的疑问：</p>
+</blockquote>
+<p><strong>思考：’\768’是不是转义字符呢？</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/sxfinn/CDN/img/202212021546473.png" alt="image-20220518223840572"></p>
+<blockquote>
+<p>注意，这里的8不是八进制数字，所以’\768’不是一个转义字符</p>
+</blockquote>
+<p>这里的\ddd中的d只能是八进制的数字，这也是一个大家非常容易忽略的地方。</p>
+<p>分析结束后，我们就可以开始数字符个数了！</p>
+<p>运行结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sxfinn/CDN/img/202212021546846.png" alt="image-20220518223846551"></p>
+<blockquote>
+<p>答案是15</p>
+<p>大家数对了吗？</p>
+<p><strong>小结：转义字符也是字符，大小为1个byte。</strong></p>
+</blockquote>
+<h2 id="💦注释"><a href="#💦注释" class="headerlink" title="💦注释"></a>💦注释</h2><ul>
+<li><strong>注释方式</strong></li>
+</ul>
+<ol>
+<li><p>C语言的注释风格：<br>&#x2F;* xxxxxxxxxxx *&#x2F;</p>
+<blockquote>
+<p><strong>缺陷</strong>:不能嵌套注释</p>
+</blockquote>
+</li>
+<li><p>C++风格的注释风格：<br>&#x2F;&#x2F; xxxxxx</p>
+<blockquote>
+<p><strong>特点</strong>：可以注释一行也可以注释多行</p>
+</blockquote>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://butterfly.xinsong.xyz">NcPhoton</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://butterfly.xinsong.xyz/2023/01/12/C/2.%E3%80%90%E5%88%9D%E8%AF%86C%E8%AF%AD%E8%A8%80%E3%80%91%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6/">http://butterfly.xinsong.xyz/2023/01/12/C/2.%E3%80%90%E5%88%9D%E8%AF%86C%E8%AF%AD%E8%A8%80%E3%80%91%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/c/">c</a><a class="post-meta__tags" href="/tags/%E5%AD%97%E7%AC%A6/">字符</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/01/12/C/3.%E3%80%90%E5%88%9D%E8%AF%86C%E8%AF%AD%E8%A8%80%E3%80%91%EF%BC%88%E4%B8%8A%EF%BC%89/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">初识C语言上</div></div></a></div><div class="next-post pull-right"><a href="/2023/01/12/C/1.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9C%BC%E4%B8%AD%E7%9A%84%E4%B8%96%E7%95%8C/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">计算机眼中的世界</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/01/12/C/1.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9C%BC%E4%B8%AD%E7%9A%84%E4%B8%96%E7%95%8C/" title="计算机眼中的世界"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-12</div><div class="title">计算机眼中的世界</div></div></a></div><div><a href="/2023/01/12/C/10.%E3%80%90C%E8%AF%AD%E8%A8%80%E8%AF%A6%E8%A7%A3%E3%80%91%E7%BB%93%E6%9E%84%E4%BD%93/" title="C语言结构体"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-12</div><div class="title">C语言结构体</div></div></a></div><div><a href="/2023/01/12/C/11.C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E3%80%90N%E5%AD%90%E6%A3%8B%E3%80%91/" title="C语言实现N子棋"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-12</div><div class="title">C语言实现N子棋</div></div></a></div><div><a href="/2023/01/12/C/12.C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E3%80%90%E6%89%AB%E9%9B%B7%E6%B8%B8%E6%88%8F%E3%80%91%E6%8B%93%E5%B1%95%E7%89%88/" title="C语言实现扫雷"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-12</div><div class="title">C语言实现扫雷</div></div></a></div><div><a href="/2023/01/12/C/13.%E3%80%90C%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6%E3%80%91%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%82%A8/" title="C语言数据的存储"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-12</div><div class="title">C语言数据的存储</div></div></a></div><div><a href="/2023/01/12/C/15.%E3%80%90C%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6%E3%80%91%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B/" title="C语言自定义类型"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-12</div><div class="title">C语言自定义类型</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">NcPhoton</div><div class="author-info__description">今日事今日毕</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">73</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">48</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/sxfinn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:sxnicoa@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A6%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.</span> <span class="toc-text">💦字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A6%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="toc-number">2.</span> <span class="toc-text">💦转义字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A6%E6%B3%A8%E9%87%8A"><span class="toc-number">3.</span> <span class="toc-text">💦注释</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/01/13/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" title="快速排序"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="快速排序"/></a><div class="content"><a class="title" href="/2023/01/13/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" title="快速排序">快速排序</a><time datetime="2023-01-12T16:13:24.000Z" title="Created 2023-01-13 00:13:24">2023-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/13/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%9A%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/" title="比较排序"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="比较排序"/></a><div class="content"><a class="title" href="/2023/01/13/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%9A%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F/" title="比较排序">比较排序</a><time datetime="2023-01-12T16:12:58.000Z" title="Created 2023-01-13 00:12:58">2023-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/13/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%80%E4%BB%8B/" title="排序简介"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="排序简介"/></a><div class="content"><a class="title" href="/2023/01/13/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%80%E4%BB%8B/" title="排序简介">排序简介</a><time datetime="2023-01-12T16:12:25.000Z" title="Created 2023-01-13 00:12:25">2023-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/13/%E6%9D%82%E8%B0%88%E7%A2%8E%E7%A2%8E%E5%BF%B5/jsDelivr%E5%9F%9F%E5%90%8D%E9%81%AD%E5%88%B0DNS%E6%B1%A1%E6%9F%93/" title="jsDelivr域名遭到DNS污染"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="jsDelivr域名遭到DNS污染"/></a><div class="content"><a class="title" href="/2023/01/13/%E6%9D%82%E8%B0%88%E7%A2%8E%E7%A2%8E%E5%BF%B5/jsDelivr%E5%9F%9F%E5%90%8D%E9%81%AD%E5%88%B0DNS%E6%B1%A1%E6%9F%93/" title="jsDelivr域名遭到DNS污染">jsDelivr域名遭到DNS污染</a><time datetime="2023-01-12T16:10:31.000Z" title="Created 2023-01-13 00:10:31">2023-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/13/%E6%9D%82%E8%B0%88%E7%A2%8E%E7%A2%8E%E5%BF%B5/%E6%9C%BA%E5%9C%BA%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/" title="机场如何选择"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机场如何选择"/></a><div class="content"><a class="title" href="/2023/01/13/%E6%9D%82%E8%B0%88%E7%A2%8E%E7%A2%8E%E5%BF%B5/%E6%9C%BA%E5%9C%BA%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/" title="机场如何选择">机场如何选择</a><time datetime="2023-01-12T16:09:57.000Z" title="Created 2023-01-13 00:09:57">2023-01-13</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By NcPhoton</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer src="/live2d-widget/autoload.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
